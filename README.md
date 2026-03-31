@@ -67,3 +67,14 @@ Expected: PATH logs showing switch and port for each packet
 - Controller logs showing PATH for every packet
 - Flow table entries showing match-action rules
 - 0% packet loss in all ping tests
+
+
+  <img width="975" height="538" alt="image" src="https://github.com/user-attachments/assets/4ecfb7f4-f9e2-414e-8c9e-d619400b7f5b" />
+  <img width="975" height="469" alt="image" src="https://github.com/user-attachments/assets/106a48ac-9d98-422f-8a28-8a7d47713258" />
+  <img width="975" height="208" alt="image" src="https://github.com/user-attachments/assets/4e69c473-c373-419f-8dd6-ad0e2c67c340" />
+  <img width="975" height="165" alt="image" src="https://github.com/user-attachments/assets/beab60ce-3d90-403d-9b2a-2670bb40b4c7" />
+  <img width="975" height="217" alt="image" src="https://github.com/user-attachments/assets/4769c919-abd2-4463-afff-3619281314db" />
+
+
+
+
