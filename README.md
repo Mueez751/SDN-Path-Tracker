@@ -1,8 +1,7 @@
 # SDN Path Tracing Tool
 
 ## Problem Statement
-Implement an SDN-based Path Tracing Tool using Mininet and POX controller 
-that identifies and displays the path taken by packets through the network.
+Implement an SDN-based Path Tracing Tool using Mininet and POX controller that identifies and displays the path taken by packets through the network.
 
 ## Tools Used
 - Mininet
@@ -19,44 +18,42 @@ that identifies and displays the path taken by packets through the network.
 ## Setup & Execution Steps
 
 ### Step 1: Install Mininet
-```
 sudo apt install mininet -y
-```
 
 ### Step 2: Install POX
-```
 git clone https://github.com/noxrepo/pox
-```
 
 ### Step 3: Copy controller file
-```
 cp path_tracer.py ~/pox/pox/forwarding/
-```
 
 ### Step 4: Start POX Controller (Terminal 1)
-```
 cd ~/pox
 python3 pox.py openflow.of_01 --port=6653 forwarding.path_tracer
-```
 
 ### Step 5: Start Mininet Topology (Terminal 2)
-```
 sudo python3 topology.py
-```
 
 ## Test Scenarios
 
-### Scenario 1: Full connectivity test
-```
-mininet> pingall
-```
+### Scenario 1: Full Connectivity Test
+Command: pingall
 Expected: 0% dropped (12/12 received)
+This tests if all 4 hosts can communicate with each other.
 
-### Scenario 2: Path tracing between specific hosts
-```
-mininet> h1 ping -c 5 h4
-```
-Expected: PATH logs showing switch and port for each packet
+### Scenario 2: Path Tracing Between Specific Hosts
+Command: h1 ping -c 5 h4
+Expected: PATH logs showing switch and port for each packet.
+The controller logs show the exact path each packet takes.
+
+### Scenario 3: Flow Table Inspection
+Command: h1 ping h4 &
+Command: sh ovs-ofctl dump-flows s1
+Expected: Flow rules installed on switch s1 showing match conditions, actions, idle_timeout=10, hard_timeout=30 and packet counts.
+
+### Scenario 4: Bandwidth Measurement
+Command: h2 iperf -s &
+Command: h1 iperf -c 10.0.0.2 -t 5
+Expected: High bandwidth throughput between h1 and h2.
 
 ## Performance Results
 - Bandwidth: 38.5 Gbits/sec (measured using iperf)
